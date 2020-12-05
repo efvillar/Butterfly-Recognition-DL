@@ -1,9 +1,7 @@
 #from fastai2.vision.all import open_image, load_learner, image, torch
 #import torch
 from fastai.vision import *
-from fastai.metrics import error_rate
 from fastai import *
-from torch import *
 import streamlit as st
 from PIL import Image
 from pathlib import Path
@@ -19,8 +17,8 @@ introduction_str = 'Este es un clasificador de imagenes de mariposas  '
 st.markdown(introduction_str)
 
 # Loading Model
-#path_file = Path('.','modelo_mariposas.pkl')
-#butterfly_classifier = load_learner(path_file )
+path_file = Path('.','modelo_mariposas.pkl')
+butterfly_classifier = load_learner(path_file )
 
 
 # load Wikipedia dictionaries info
@@ -37,8 +35,6 @@ file_up = st.file_uploader(
 #    st.image(image, caption='Uploaded Image.', use_column_width=True)
 #except:
 #    st.write("No files upload")
-
-butterfly_classifier = torch.load('modelo_mariposas.pkl')
 
 
 
