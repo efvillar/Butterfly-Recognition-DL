@@ -1,4 +1,4 @@
-name: dl
+name: TIA2
 channels:
   - conda
   - conda-forge
