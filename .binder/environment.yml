@@ -7,8 +7,9 @@ dependencies:
   - python=3.7.9
   - pip
   - jupyter-server-proxy
-  - pytorch 
-  - torchvision
+  - pytorch==1.4.0
+  - torchvision==0.5.0
   - pip:
     - streamlit==0.66.0          
-    - fastai==2.0.10 
+    - fastai==1.0.61
+    - pillow==6.0
