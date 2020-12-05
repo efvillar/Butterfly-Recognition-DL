@@ -1,13 +1,14 @@
 #from fastai2.vision.all import open_image, load_learner, image, torch
 #import torch
 from fastai.vision import *
+from fastai.metrics import *
 from fastai import *
 import streamlit as st
 from PIL import Image
 from pathlib import Path
 import json
 
-
+#defaults.device = torch.device('cpu')
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("RECONOCIMIENTO DE MARIPOSAS - API")
@@ -18,7 +19,7 @@ st.markdown(introduction_str)
 
 # Loading Model
 path_file = Path('.','modelo_mariposas.pkl')
-butterfly_classifier = load_learner(path_file )
+butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
 
 
 # load Wikipedia dictionaries info
@@ -46,7 +47,7 @@ if file_up is not None:
     image = PILImage.create(file_up)
     pred,pred_idx,probs = butterfly_classifier.predict(image)
 
-    st.subheader("Fish Specie Prediction")
+    st.subheader("Predición Mariposa")
     out_label = f'Predicion: {pred}; Clase: {pred_idx}'
 
     st.write(out_label)
