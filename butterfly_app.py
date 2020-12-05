@@ -19,7 +19,7 @@ st.markdown(introduction_str)
 
 # Loading Model
 #path_file = Path('.','modelo_mariposas.pkl')
-butterfly_classifier = load_learner('modelo_mariposas.pkl')
+#butterfly_classifier = load_learner(path_file )
 
 
 # load Wikipedia dictionaries info
@@ -37,6 +37,7 @@ file_up = st.file_uploader(
 #except:
 #    st.write("No files upload")
 
+butterfly_classifier = torch.load('modelo_mariposas.pkl')
 
 
 
@@ -44,7 +45,7 @@ if file_up is not None:
     image = Image.open(file_up)
     st.image(image, caption='Uploaded Image.', use_column_width=True)
 
-    #fish_classifier = torch.load('fish_classification.pkl')
+#    butterfly_classifier = torch.load('modelo_mariposas.pkl')
     image = PILImage.create(file_up)
     pred,pred_idx,probs = butterfly_classifier.predict(image)
 
