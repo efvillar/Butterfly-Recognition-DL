@@ -1,6 +1,8 @@
 #from fastai2.vision.all import open_image, load_learner, image, torch
-import torch
-from fastai.vision.all import *
+#import torch
+from fastai.vision import *
+from fastai.metrics import error_rate
+from fastai import *
 import streamlit as st
 from PIL import Image
 from pathlib import Path
