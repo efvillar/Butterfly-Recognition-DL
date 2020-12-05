@@ -9,35 +9,24 @@ import json
 
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
-st.title("FISH SPECIES RECOGNITION API")
+st.title("RECONOCIMIENTO DE MARIPOSAS - API")
 
-introduction_str = 'This is a sea fish classifier.  It was made with 44,134 images corresponding to 44 species, which were scraped, \
-    or downloaded manually in some cases. It was done by transfer of learning using the RESNET 34 model from Pytorch and the Fastai2 libraries. \
-    In the validation of the model, the training error was 7%.'
+introduction_str = 'Este es un clasificador de imagenes de mariposas  '
 
 st.markdown(introduction_str)
 
 # Loading Model
-path_file = Path('.','fish_classification.pkl')
-fish_classifier = load_learner(path_file)
+path_file = Path('.','modelo_mariposas.pkl')
+butterfly_classifier = load_learner(path_file)
 
 
 # load Wikipedia dictionaries info
-
-with open(Path(".",'name_dict.json')) as file1:
-    name_dict= json.load(file1)
-
-with open(Path(".",'fish_summaries.json')) as file2:
-    fish_summaries= json.load(file2)        
-
-with open(Path(".",'url_dict.json')) as file3:
-    url_dict= json.load(file3)
-    
+   
 
 # Loading File to classify
 
 file_up = st.file_uploader(
-    "Upload an image", 
+    "Subir una imagen de mariposas", 
     type=['png', 'jpg', 'jpeg'])
 
 #try:
@@ -55,20 +44,13 @@ if file_up is not None:
 
     #fish_classifier = torch.load('fish_classification.pkl')
     image = PILImage.create(file_up)
-    pred,pred_idx,probs = fish_classifier.predict(image)
+    pred,pred_idx,probs = butterfly_classifier.predict(image)
 
     st.subheader("Fish Specie Prediction")
-    out_label = f'Prediction: {name_dict[pred]};\n\n Probability: {probs[pred_idx]:.03f}'
+    out_label = f'Predicion: {pred}; Clase: {pred_idx}'
 
     st.write(out_label)
     st.markdown("\n\n")
-    st.subheader("Wikipedia Information About Classified Fish")
-    st.markdown("\n")
-    st.write(fish_summaries[pred])
-    st.markdown("\n")
-    out_url = f"Wikipedia url source: {url_dict[pred]}"
-    st.write(out_url)
- 
  
 
 
