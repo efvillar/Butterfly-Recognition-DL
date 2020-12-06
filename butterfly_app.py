@@ -18,8 +18,8 @@ introduction_str = 'Este es un clasificador de imagenes de mariposas  '
 st.markdown(introduction_str)
 
 # Loading Model
-path_file = Path('.','modelo_mariposas.pkl')
-butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
+#path_file = Path('.','export.pkl')
+butterfly_classifier = load_learner('export.pkl', cpu=True, pickle_module=pickle)
 
 
 # load Wikipedia dictionaries info
