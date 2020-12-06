@@ -8,7 +8,7 @@ from PIL import Image
 from pathlib import Path
 import json
 
-defaults.device = torch.device('cpu')
+#defaults.device = torch.device('cpu')
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("RECONOCIMIENTO DE MARIPOSAS - API")
@@ -18,9 +18,9 @@ introduction_str = 'Este es un clasificador de imagenes de mariposas  '
 st.markdown(introduction_str)
 
 # Loading Model
-path_file = Path('modelo',export.pkl)
-butterfly_classifier = load_learner(path_file)
-#butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
+path_file = Path('modelo')
+#butterfly_classifier = load_learner(path_file)
+butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
 
 
 # load Wikipedia dictionaries info
