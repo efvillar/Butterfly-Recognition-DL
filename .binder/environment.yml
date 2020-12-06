@@ -2,7 +2,7 @@ name: TIA2
 channels:
   - conda
   - conda-forge
-  - pytroch
+  - pytorch
 dependencies:
   - python=3.7.9
   - pip
