@@ -2,14 +2,13 @@ name: TIA2
 channels:
   - conda
   - conda-forge
-  - pytorch
 dependencies:
   - python=3.7.9
   - pip
   - jupyter-server-proxy
-  - pytorch==1.4.0
+  - pytorch==1.4.0  
   - torchvision==0.5.0
+  - pillow==6.0
   - pip:
-    - streamlit==0.66.0          
+    - streamlit==0.72.0          
     - fastai==1.0.61
-    - pillow==6.0
