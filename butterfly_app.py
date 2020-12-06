@@ -8,7 +8,7 @@ from PIL import Image
 from pathlib import Path
 import json
 
-#defaults.device = torch.device('cpu')
+defaults.device = torch.device('cpu')
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.title("RECONOCIMIENTO DE MARIPOSAS - API")
