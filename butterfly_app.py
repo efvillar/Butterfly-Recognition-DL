@@ -19,7 +19,8 @@ st.markdown(introduction_str)
 
 # Loading Model
 path_file = Path('.','modelo')
-butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
+butterfly_classifier = load_learner(path_file)
+#butterfly_classifier = load_learner(path_file, cpu=True, pickle_module=pickle)
 
 
 # load Wikipedia dictionaries info
